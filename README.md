@@ -1,0 +1,1 @@
+# areweglobalshortcutsyet.github.io
