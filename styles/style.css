@@ -133,7 +133,7 @@ a {
 .progress-table td a:hover {
     color: var(--accent);
 }
-.emoji-cell {
+.refernce-cell {
     font-size: 1.2rem;
 }
 .progress-bg {

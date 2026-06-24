@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const progressContainer = document.getElementById('progress');
 
-    const response = await fetch('tracker.json');
+    const response = await fetch('tracker-examples.json');
     const data = await response.json();
 
     const table = document.createElement('table');
@@ -28,9 +28,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             percentage = 100;
         } else {
             if (app.tracking_issue) percentage += 9.99;
+            if (app.pull_request) percentage += 15;
             if (app.wip) percentage += 30;
             if (app.testing) percentage += 30;
         }
+
+        let reference = app.pull_request || app.tracking_issue;
 
         let emoji = '🫥';
         if (app.done) emoji = '🥳';
@@ -38,9 +41,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         else if ((app.pull_request || app.tracking_issue) && !(app.wip || app.testing)) emoji = '🤔';
         else if (app.wip || app.testing) emoji = '🫣';
 
-        let reference = app.pull_request || app.tracking_issue;
-
-        return { ...app, percentage, emoji, reference };
+        let referenceText = 'None ' + emoji;
+        if (app.done) referenceText = 'Completed ' + emoji;
+        else if (app.declined) referenceText = 'Not Planned ' + emoji;
+        else if (app.pull_request) referenceText = 'PR ' + emoji;
+        else if (app.tracking_issue) referenceText = 'Issue ' + emoji;
+        
+        return { ...app, percentage, referenceText, reference };
     });
 
     processedData.sort((a, b) => b.percentage - a.percentage);
@@ -50,7 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         row.innerHTML = `
             <td><a href="${app.url}" target="_blank">${app.name}</a></td>
-            <td class="emoji-cell"><a href="${app.reference || "#"}" target="_blank">${app.emoji}</a></td>
+            <td class="reference-cell"><a href="${app.reference || "#"}" target="_blank">${app.referenceText}</a></td>
             <td>
                 <div class="progress-bg">
                     <div class="progress-fill" style="width: ${app.percentage}%"></div>

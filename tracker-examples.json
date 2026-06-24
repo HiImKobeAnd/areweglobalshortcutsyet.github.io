@@ -51,8 +51,17 @@
         "name": "Issue Only Example",
         "url": "https://www.example.org/",
         "tracking_issue": "https://github.com/user/example-project/issues/67",
-        "pull_request": "https://github.com/user/example-project/pr/67",
         "wip": false,
+        "testing": false,
+        "done": false,
+        "declined": false
+    },
+
+    "example-project-g": {
+        "name": "WIP Example 2",
+        "url": "https://www.example.org/",
+        "tracking_issue": "https://github.com/user/example-project/issues/67",
+        "wip": true,
         "testing": false,
         "done": false,
         "declined": false
