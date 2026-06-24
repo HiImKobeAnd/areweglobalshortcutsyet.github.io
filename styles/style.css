@@ -1,0 +1,162 @@
+:root {
+    color-scheme: light dark;
+    --bg: light-dark(#fffbf0, #293737);
+    --bg-alt: light-dark(#f5f7ff, #2a3350);
+    --fg: light-dark(#3b4949, #faf2db);
+    --fg-alt: light-dark(#41362e, #dbe0f2);
+    --accent: light-dark(#29acff, #29acff);
+    --accent-alt: light-dark(#875cda, #ff004d);
+    --logo: url("../assets/images/xdg-portal-light.png");
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --logo: url("../assets/images/xdg-portal-dark.png");
+    }
+}
+
+@font-face {
+    font-family: ubuntu;
+    src: url('../assets/fonts/Ubuntu-Regular.ttf') format('truetype');
+}
+
+* {
+    font-family: ubuntu;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg);
+    color: var(--fg );
+    font-size: 16px;
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;    
+    text-align: center;
+    text-shadow: 0 0 2px var(--bg-alt), 0 0 6px var(--bg-alt), 0 0 10px var(--accent);
+    background: linear-gradient(33deg, var(--accent) 0%, var(--bg-alt) 40%, var(--bg-alt) 60%, var(--accent-alt) 100%);
+    box-shadow: 0px 0px 10px 0px var(--accent-alt);
+}
+
+#logo {
+    image-rendering: pixelated;
+    background-image: var(--logo);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    margin: auto;
+    flex-shrink: 0;
+    width: 800px;  
+    height: 256px;  
+}
+
+.glow {
+  text-shadow: -1px -1px 0 var(--bg-alt), 1px -1px 0 var(--bg-alt), -1px 1px 0 var(--bg-alt), 1px 1px 0 var(--bg-alt), 0 0 2px var(--bg-alt), 0 0 5px var(--bg-alt), 0 0 7px var(--bg-alt), 0 0 9px var(--bg-alt), 0 0 20px var(--accent);;
+}
+
+#title {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);  
+    font-weight: 750;  
+    margin: auto;  
+    padding: 1rem;  
+    padding-top: 3rem;  
+    max-width: 90vw; 
+    text-align: center;
+}
+
+#title span {
+    font-size: clamp(2.67rem, 5vw, 3.67rem);  
+    color: var(--accent-alt);
+}
+
+#subtitle {
+    font-size: clamp(1.1rem, 3vw, 2rem);  
+    font-weight: 250;
+    max-width: 75vw; 
+    text-align: center;
+    margin-inline: auto;
+}
+
+#content {
+    padding-top: 1rem;
+    max-width: 80vw;
+    margin: auto;
+    font-size: 1.1rem;
+    font-weight: 250;
+}
+
+.description {
+    text-align: center;
+    margin: 10px 0px auto auto;
+}
+
+a {
+    font-weight: 750;
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.section h1 {
+    font-size: clamp(1.1rem, 3vw, 2rem);  
+    color: var(--accent-alt);
+    margin: 0;
+    padding-top: 1rem;
+}
+
+.progress-table {
+    width: 100%;
+    margin: 1rem auto auto auto;
+    border-collapse: collapse;
+    text-align: left;
+    background-color: color-mix(in srgb, var(--accent), transparent 90%);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+}
+.progress-table th, .progress-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--fg);
+}
+.progress-table th {
+    font-weight: 750;
+    color: var(--accent-alt);
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.progress-table td a {
+    color: var(--fg);
+    text-decoration: none;
+    font-weight: 500;
+}
+.progress-table td a:hover {
+    color: var(--accent);
+}
+.emoji-cell {
+    font-size: 1.2rem;
+}
+.progress-bg {
+    background-color: var(--bg);
+    border-radius: 8px;
+    height: 24px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    margin-right: 8px;
+}
+.progress-fill {
+    background: linear-gradient(45deg, var(--accent-alt) 20%, var(--accent) 80%);
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+}
+
+#contrib-steps {
+    padding-left: 2rem;
+}
+
+#contrib-steps p span {
+    font-weight: 750;
+    color: var(--accent-alt)
+}
