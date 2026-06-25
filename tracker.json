@@ -77,15 +77,17 @@
     "chromium": {
         "name": "Chromium",
         "url": "https://www.chromium.org/Home/",
-        "pull_request": "https://chromium-review.googlesource.com/c/chromium/src/+/5871484",
-        "done": true
+        "tracking_issue": "https://issues.chromium.org/issues/520262204",
+        "reference_text": "Bug 🐛",
+        "progress": 90
     },
 
     "electron": {
         "name": "Electron",
         "url": "https://electronjs.org/",
-        "pull_request": "https://github.com/electron/electron/pull/45171",
-        "done": true
+        "tracking_issue": "https://github.com/electron/electron/issues/51875",
+        "reference_text": "Bug 🐛",
+        "progress": 90
     }
 
 }
